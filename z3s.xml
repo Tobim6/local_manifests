@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="lineageos-direct" fetch="https://github.com/LineageOS/" />
+  <remote name="exynos9830-dev" fetch="https://github.com/Exynos9830-Development/" />
+  <remote name="themuppets" fetch="https://github.com/TheMuppets/" />
+  <remote name="tobim6" fetch="https://github.com/Tobim6/" />
+
+  <!-- Device trees (Android 16 trees, to be ported to 17) -->
+  <project name="pixelos_device_samsung_z3s" path="device/samsung/z3s" remote="tobim6" revision="sixteen-qpr2" />
+  <project name="device_samsung_universal9830-common" path="device/samsung/universal9830-common" remote="tobim6" revision="a17-pixelos" />
+  <project name="android_device_samsung_slsi_sepolicy" path="device/samsung_slsi/sepolicy" remote="lineageos-direct" revision="lineage-24.0" />
+
+  <!-- Kernel: forked to tobim6 (from exynos9830-dev's sixteen-qpr2) to carry the user's own
+       ReSukiSU integration, committed and pushed there. -->
+  <project name="kernel_samsung_universal9830" path="kernel/samsung/universal9830" remote="tobim6" revision="sixteen-qpr2-resukisu" />
+  <!-- Vendor blobs: tried TheMuppets' lineage-24.0 (57 changed files vs. exynos9830-dev
+       lineage-23.2) to match LineageOS's own build exactly. It fixed the gatekeeper crash
+       (needed the teegris AIDL implementation instead of generic HIDL 1.0) but did NOT fix
+       the thermal HAL hang, confirming that hang is independent of vendor blob source,
+       and it broke libsec-ril-impl (missing libvkmanager_vendor/libengmode_client, a gap in
+       TheMuppets' own checkout). Reverted to exynos9830-dev; keep digging at thermal directly
+       instead of chasing vendor blob differences further. -->
+  <project name="vendor_samsung_universal9830-common" path="vendor/samsung/universal9830-common" remote="exynos9830-dev" revision="lineage-23.2" />
+  <project name="vendor_samsung_z3s" path="vendor/samsung/z3s" remote="exynos9830-dev" revision="lineage-23.2" />
+
+  <!-- Samsung hardware: upstream LineageOS Android 17 -->
+  <project name="android_hardware_samsung" path="hardware/samsung" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi_libbt" path="hardware/samsung_slsi/libbt" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi_nfc" path="hardware/samsung_slsi/nfc" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_config" path="hardware/samsung_slsi-linaro/config" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_exynos" path="hardware/samsung_slsi-linaro/exynos" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_exynos5" path="hardware/samsung_slsi-linaro/exynos5" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_graphics" path="hardware/samsung_slsi-linaro/graphics" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_interfaces" path="hardware/samsung_slsi-linaro/interfaces" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_openmax" path="hardware/samsung_slsi-linaro/openmax" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_sgpu" path="hardware/samsung_slsi-linaro/sgpu" remote="lineageos-direct" revision="lineage-24.0" />
+  <project name="android_hardware_samsung_slsi-linaro_codec2" path="hardware/samsung_slsi-linaro/codec2" remote="lineageos-direct" revision="lineage-24.0" />
+</manifest>

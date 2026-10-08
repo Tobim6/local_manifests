@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="franklin-albuquerque" fetch="https://github.com/franklin-albuquerque/" />
+
+  <!-- Device tree (Android 16 tree, to be ported to 17 the same way z3s was).
+       Working directly from Franklin's own repo (read-only) for now, no push-capable
+       fork set up yet, unlike z3s's tobim6 fork. Kernel and device_samsung_universal9830-common
+       are shared with z3s (already present via z3s.xml), no need to add again. -->
+  <project name="device_samsung_y2s" path="device/samsung/y2s" remote="franklin-albuquerque" revision="lineage-23-qpr0" />
+
+  <!-- Vendor blobs: same org/revision convention as z3s (Exynos9830-Development, lineage-23.2). -->
+  <project name="vendor_samsung_y2s" path="vendor/samsung/y2s" remote="exynos9830-dev" revision="lineage-23.2" />
+</manifest>

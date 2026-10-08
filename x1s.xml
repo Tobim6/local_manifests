@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="franklin-albuquerque" fetch="https://github.com/franklin-albuquerque/" />
+
+  <!-- Device tree (Android 16 tree, to be ported to 17 the same way z3s/y2s were).
+       Using sixteen-qpr0-euicc (newer than plain sixteen-qpr0, 2025-12-28 vs 2025-12-12);
+       it already carries real upstream eUICC permission/slot wiring (EUICC permissions,
+       SamsungEuicc, non-removable eUICC slot), which we had to build ourselves for z3s/y2s.
+       Working directly from Franklin's own repo (read-only) for now, no push-capable fork
+       set up yet, same as y2s. Kernel and device_samsung_universal9830-common are shared
+       with z3s/y2s (already present via z3s.xml), no need to add again. -->
+  <project name="device_samsung_x1s" path="device/samsung/x1s" remote="franklin-albuquerque" revision="sixteen-qpr0-euicc" />
+
+  <!-- Vendor blobs: same org/revision convention as z3s/y2s (Exynos9830-Development, lineage-23.2). -->
+  <project name="vendor_samsung_x1s" path="vendor/samsung/x1s" remote="exynos9830-dev" revision="lineage-23.2" />
+</manifest>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="krazey-gh" fetch="https://github.com/krazey" />
+  <remove-project name="platform/packages/modules/ImsStack" />
+  <remove-project name="platform/packages/modules/ImsMedia" />
+  <project path="packages/modules/ImsStack" name="ImsStack" remote="krazey-gh"
+           revision="5ff784d265a94b8227f8fcc93bf915f7635283f0" upstream="main" />
+  <project path="packages/modules/ImsMedia" name="ImsMedia" remote="krazey-gh"
+           revision="cb1dd74e9d5e7b7693dfc5870037607eb58d8ea3" upstream="main" />
+  <project path="packages/apps/CarrierSettings" name="CarrierSettings" remote="krazey-gh"
+           revision="2d00ce6100921547482bb3ecda690ec346d64be2" upstream="main" />
+</manifest>

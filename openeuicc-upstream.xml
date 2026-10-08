@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="estkme-gh" fetch="https://github.com/estkme-group" />
+  <remote name="angry-gitea" fetch="https://gitea.angry.im/PeterCxy" />
+  <project path="packages/apps/OpenEUICC" name="openeuicc" remote="estkme-gh"
+           revision="89d677e07d0ebbd2d157ede2cb31f76aec737e3a" upstream="master" sync-s="true" />
+  <project path="prebuilts/openeuicc-deps" name="android_prebuilts_openeuicc-deps" remote="angry-gitea"
+           revision="540216793010cabc49782bd01844cd8dd28a4c7c" upstream="master" />
+</manifest>
